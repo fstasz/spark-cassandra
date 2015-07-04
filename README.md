@@ -2,6 +2,6 @@
 Spark + Cassandra CRUD experiments.
 
 
-# Dependencies
-Uses unix dictionary for transformation/persistence to Cassandra.
+## Dependencies
+Uses Unix words file for transformation/persistence to Cassandra.
 
