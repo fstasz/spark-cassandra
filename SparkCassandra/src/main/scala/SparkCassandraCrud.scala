@@ -3,7 +3,7 @@ import com.datastax.spark.connector._
 
 object SparkCassandraCrud {
 
-  case class Words(word: String, count: Int)
+  case class WordCount(word: String, count: Int)
 
   def main(args: Array[String]): Unit = {
     /** Configure SparkContext */
@@ -11,15 +11,20 @@ object SparkCassandraCrud {
       .set(Configuration.CassandraConnection, Configuration.CassandraNode)
       .setAppName(Configuration.AppName)
       .setMaster(Configuration.SparkMaster)
+      
+    /** Create SparkContext */  
     val sc = new SparkContext(Configuration.ThreadConfig, Configuration.AppName, conf)
     
+    /** Read text from words file */
     val wordList = sc.textFile(Configuration.WordFile, 2).cache()
     
+    /** Return a new RDD of words containing SearchString */
     val sparkWords = wordList.filter(line => line.contains(Configuration.SearchString))
     
+    /** Save words and count to Cassandra */
     def persist(words: Array[String]) = {
       for (i <- 1 until words.length) {
-        val collection = sc.parallelize(Seq(Words(words(i), i)))
+        val collection = sc.parallelize(Seq(WordCount(words(i), i)))
         collection.saveToCassandra(
           Configuration.CassandraKeyspace, Configuration.CassandraTable, SomeColumns(
             Configuration.WordColumn, Configuration.CountColumn))
