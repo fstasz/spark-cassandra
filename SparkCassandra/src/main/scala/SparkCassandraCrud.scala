@@ -6,6 +6,7 @@ object SparkCassandraCrud {
   case class Words(word: String, count: Int)
 
   def main(args: Array[String]): Unit = {
+    /** Configure SparkContext */
     val conf = new SparkConf(true)
       .set(Configuration.CassandraConnection, Configuration.CassandraNode)
       .setAppName(Configuration.AppName)
