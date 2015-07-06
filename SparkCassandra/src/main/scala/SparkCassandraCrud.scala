@@ -34,13 +34,13 @@ object SparkCassandraCrud {
     /** Create SparkContext */  
     val sc = new SparkContext(Configuration.ClusterUrl, Configuration.AppName, conf)
     
-    /** Read lines from words file */
-    val wordList = sc.textFile(Configuration.WordFile, 2).cache()
+    /** Define RDD from words file */
+    val wordList = sc.textFile(Configuration.WordsFile, 2).cache()
     
     /** Return a new RDD of words containing SearchString */
     val sparkWords = wordList.filter(line => line.contains(Configuration.SearchString))
     
-    /** Save words and count to Cassandra */
+    /** Save to Cassandra */
     def persist(words: Array[String]) = {
       for (i <- 1 until words.length) {
         val collection = sc.parallelize(Seq(WordCount(words(i), i)))
@@ -64,6 +64,6 @@ object SparkCassandraCrud {
     val WordColumn = "word"
     val CountColumn = "count"
     val SearchString = "spark"
-    val WordFile = "/usr/share/dict/words"
+    val WordsFile = "/usr/share/dict/words"
   }
 }
