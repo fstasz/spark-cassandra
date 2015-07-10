@@ -1,5 +1,5 @@
-# Spark Cassandra CRUD
-Spark + Cassandra CRUD experiments.
+# Spark Cassandra
+Spark + Cassandra experiments.
 
 
 ## Dependencies
