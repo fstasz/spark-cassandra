@@ -20,7 +20,8 @@
 import org.apache.spark.{ SparkConf, SparkContext }
 import com.datastax.spark.connector._
 
-object SparkCassandraCrud {
+/** Spark + Cassandra connector operations. */
+object SparkCassandra {
 
   case class WordCount(word: String, count: Int)
 
@@ -54,7 +55,7 @@ object SparkCassandraCrud {
   }
   
   object Configuration {
-    val AppName = "CassandraSpark"
+    val AppName = "SparkCassandra"
     val SparkMaster = "spark://localhost:7077"
     val ClusterUrl = "local[2]"
     val CassandraConnection = "spark.cassandra.connection.host"
