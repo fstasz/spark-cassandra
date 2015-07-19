@@ -2,8 +2,8 @@ name := "SparkCassandra"
 
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.7"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.4.0"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.4.1"
 
-libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "1.3.0-M1"
+libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "1.4.0-M1"
