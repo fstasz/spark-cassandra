@@ -57,7 +57,7 @@ object SparkCassandra {
   object Configuration {
     val AppName = "SparkCassandra"
     val SparkMaster = "spark://localhost:7077"
-    val ClusterUrl = "local[2]"
+    val ClusterUrl = "local[*]"
     val CassandraConnection = "spark.cassandra.connection.host"
     val CassandraNode = "localhost"
     val CassandraKeyspace = "test"
