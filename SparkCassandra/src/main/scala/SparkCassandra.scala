@@ -52,6 +52,7 @@ object SparkCassandra {
     }
     
     persist(sparkWords.toArray())
+    sc.stop()
   }
   
   object Configuration {
