@@ -17,30 +17,18 @@
  * under the License.
  */
 
-import org.apache.spark.{ SparkConf, SparkContext }
 import com.datastax.spark.connector._
 
 /** Spark + Cassandra connector operations. */
-object SparkCassandra {
+object SparkCassandra extends Config {
 
   case class WordCount(word: String, count: Int)
 
-  def main(args: Array[String]): Unit = {
-    /** Configure SparkContext */
-    val conf = new SparkConf(true)
-      .set(Configuration.CassandraConnection, Configuration.CassandraNode)
-      .setAppName(Configuration.AppName)
-      .setMaster(Configuration.SparkMaster)
-      
-    /** Create SparkContext */  
-    val sc = new SparkContext(Configuration.ClusterUrl, Configuration.AppName, conf)
-    
+  def persistToCassandra() = {
     /** Define RDD from words file */
     val wordList = sc.textFile(Configuration.WordsFile, 2).cache()
-    
     /** Return a new RDD of words containing SearchString */
     val sparkWords = wordList.filter(line => line.contains(Configuration.SearchString))
-    
     /** Save to Cassandra */
     def persist(words: Array[String]) = {
       for (i <- 1 until words.length) {
@@ -53,19 +41,5 @@ object SparkCassandra {
     
     persist(sparkWords.toArray())
     sc.stop()
-  }
-  
-  object Configuration {
-    val AppName = "SparkCassandra"
-    val SparkMaster = "spark://localhost:7077"
-    val ClusterUrl = "local[*]"
-    val CassandraConnection = "spark.cassandra.connection.host"
-    val CassandraNode = "localhost"
-    val CassandraKeyspace = "test"
-    val CassandraTable = "words"
-    val WordColumn = "word"
-    val CountColumn = "count"
-    val SearchString = "spark"
-    val WordsFile = "/usr/share/dict/words"
   }
 }
