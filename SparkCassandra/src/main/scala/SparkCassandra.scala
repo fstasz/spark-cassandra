@@ -20,7 +20,7 @@
 import com.datastax.spark.connector._
 
 /** Spark + Cassandra connector operations. */
-object SparkCassandra extends Config {
+object SparkCassandra extends SparkCassandraConfig {
 
   case class WordCount(word: String, count: Int)
 
@@ -40,6 +40,5 @@ object SparkCassandra extends Config {
     }
     
     persist(sparkWords.toArray())
-    sc.stop()
   }
 }
