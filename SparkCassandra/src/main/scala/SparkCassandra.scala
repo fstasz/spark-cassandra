@@ -39,6 +39,6 @@ object SparkCassandra extends SparkCassandraConfig {
       }
     }
     
-    persist(sparkWords.toArray())
+    persist(sparkWords.collect())
   }
 }
