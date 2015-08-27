@@ -3,7 +3,7 @@ Spark + Cassandra experiments.
 
 
 ## Dependencies
-Running local mode on OS X, operates on Unix words file for spark/cassandra operations.
+Running local mode on OS X, operates on Unix words file /usr/share/dict/words.
 
 ## Configuration
 ```
