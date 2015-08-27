@@ -3,7 +3,7 @@ Spark + Cassandra experiments.
 
 
 ## Dependencies
-Running local mode on OS X, uses OS X Unix words file for transformation/persistence.
+Running local mode on OS X, operates on Unix words file for spark/cassandra operations.
 
 ## Configuration
 ```
