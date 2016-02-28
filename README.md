@@ -18,3 +18,8 @@ from cqlsh:
 CREATE KEYSPACE test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1 };
 CREATE TABLE test.words(word text PRIMARY KEY, count int);
 ```
+## Usage
+From the sbt console:
+```
+> test
+```
