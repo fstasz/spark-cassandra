@@ -23,3 +23,4 @@ From the sbt console:
 ```
 > test
 ```
+![results](https://cloud.githubusercontent.com/assets/7256774/13377851/d5003c4e-ddb2-11e5-8c72-2c2aa3c93bfb.png)
