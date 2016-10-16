@@ -8,7 +8,7 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % "2.0.1"
 
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "1.6.0"
 
-libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "1.6.0-M1"
+libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "2.0.0-M3"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
 
