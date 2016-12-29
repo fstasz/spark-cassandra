@@ -31,15 +31,15 @@ trait SparkCassandraConfig {
 
   object Configuration {
     val AppName = "SparkCassandra"
-    val SparkMaster = "spark://localhost:7077"
-    val ClusterUrl = "local[*]"
     val CassandraConnection = "spark.cassandra.connection.host"
-    val CassandraNode = "localhost"
     val CassandraKeyspace = "test"
+    val CassandraNode = "localhost"
     val CassandraTable = "words"
-    val WordColumn = "word"
+    val ClusterUrl = "local[*]"
     val CountColumn = "count"
     val SearchString = "spark"
+    val SparkMaster = "spark://localhost:7077"
+    val WordColumn = "word"
     val WordsFile = "/usr/share/dict/words"
   }
 }
