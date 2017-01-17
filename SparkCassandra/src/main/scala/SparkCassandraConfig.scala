@@ -26,7 +26,7 @@ trait SparkCassandraConfig {
     .setAppName(Configuration.AppName)
     .setMaster(Configuration.SparkMaster)
 
-  /** Create SparkContext */
+  /** Create SparkContext and register it as a singleton object */
   val sc = SparkContext.getOrCreate(conf)
 
   object Configuration {
