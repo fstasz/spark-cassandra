@@ -30,7 +30,7 @@ trait SparkCassandraConfig {
   val sc = new SparkContext(Configuration.ClusterUrl, Configuration.AppName, conf)
 
   object Configuration {
-    val AppName = "SparkCassandra"
+    val AppName = "SparkCassandraScala"
     val CassandraConnection = "spark.cassandra.connection.host"
     val CassandraKeyspace = "test"
     val CassandraNode = "localhost"
