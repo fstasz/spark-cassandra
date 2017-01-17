@@ -27,7 +27,7 @@ trait SparkCassandraConfig {
     .setMaster(Configuration.SparkMaster)
 
   /** Create SparkContext */
-  val sc = new SparkContext(Configuration.ClusterUrl, conf)
+  val sc = SparkContext.getOrCreate(conf)
 
   object Configuration {
     val AppName = "SparkCassandraScala"
