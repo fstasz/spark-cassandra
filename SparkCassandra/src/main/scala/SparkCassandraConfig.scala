@@ -35,9 +35,9 @@ trait SparkCassandraConfig {
     val CassandraKeyspace = "test"
     val CassandraNode = "localhost"
     val CassandraTable = "words"
-    val SparkMaster = "local[*]"
     val CountColumn = "count"
     val SearchString = "spark"
+    val SparkMaster = "local[*]"
     val WordColumn = "word"
     val WordsFile = "/usr/share/dict/words"
   }
