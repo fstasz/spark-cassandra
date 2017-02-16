@@ -1,4 +1,4 @@
-# Spark Cassandra
+# Spark Cassandra Scala
 Spark + Cassandra experiments.
 
 
