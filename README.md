@@ -1,5 +1,5 @@
 # Spark Cassandra Scala
-Spark + Cassandra experiments.
+Spark + Cassandra + Scala experiments.
 
 
 ## Dependencies
