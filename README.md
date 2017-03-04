@@ -8,7 +8,7 @@ Running in Spark local mode, operates on *nix words file /usr/share/dict/words.
 ## Configuration
 ```
 Spark:
-spark-env.sh edits:
+spark/conf/spark-env.sh edits:
 export SPARK_LOCAL_IP=127.0.0.1
 export SPARK_MASTER_IP=127.0.0.1
 ```
