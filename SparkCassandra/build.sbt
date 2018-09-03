@@ -10,6 +10,6 @@ libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0"
 
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "2.3.0"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
