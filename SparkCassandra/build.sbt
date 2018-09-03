@@ -2,7 +2,7 @@ name := "SparkCassandra"
 
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % "2.0.1"
 
