@@ -17,11 +17,11 @@
  * under the License.
  */
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import SparkCassandra._
 import com.datastax.spark.connector._
 
-class SparkCassandraSuite extends FunSuite with TestUtil {
+class SparkCassandraSuite extends AnyFunSuite with TestUtil {
 
   test("Words containing spark in Unix words file should persist to Cassandra") {
 
