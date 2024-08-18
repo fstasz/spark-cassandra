@@ -4,9 +4,9 @@ version := "1.0.0"
 
 scalaVersion := "2.13.1"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % "3.5.1"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "3.5.2"
 
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.5.1" % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.5.2" % "provided"
 
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "3.5.1"
 
