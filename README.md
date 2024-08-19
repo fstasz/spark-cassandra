@@ -4,7 +4,7 @@ Spark + Cassandra + Scala experiments.
 
 ## Dependencies
 - Running in Spark local mode, operates on *nix words file /usr/share/dict/words.
-- Tested on Scala 2.13.1, Spark 3.5.2, Spark Cassandra Connector 3.5.1, and Scalactic and ScalaTest 3.2.19. Please see SparkCassandra/build.sbt for the list of library dependencies.
+- Tested on Scala 2.13.1, Spark 3.5.2, Spark Cassandra Connector 3.5.2, and Scalactic and ScalaTest 3.2.19. Please see SparkCassandra/build.sbt for the list of library dependencies.
 
 ## Configuration
 ```
