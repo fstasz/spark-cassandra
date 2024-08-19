@@ -18,27 +18,20 @@
  */
 
 import org.apache.spark.{ SparkConf, SparkContext }
+import com.typesafe.config._
 
 trait SparkCassandraConfig {
+
+  /** Load Typesafe config */
+  val conf = ConfigFactory.load()
+
   /** Configure SparkContext */
-  val conf = new SparkConf(true)
-    .set(Configuration.CassandraConnection, Configuration.CassandraNode)
-    .setAppName(Configuration.AppName)
-    .setMaster(Configuration.SparkMaster)
+  val sparkConf = new SparkConf(true)
+    .set(conf.getString("cassandraConfig.connection"), conf.getString("cassandraConfig.node"))
+    .setAppName(conf.getString("sparkConfig.appName"))
+    .setMaster(conf.getString("sparkConfig.sparkMaster"))
 
   /** Create SparkContext and register it as a singleton object */
-  val sc = SparkContext.getOrCreate(conf)
+  val sc = SparkContext.getOrCreate(sparkConf)
 
-  object Configuration {
-    val AppName = "SparkCassandraScala"
-    val CassandraConnection = "spark.cassandra.connection.host"
-    val CassandraKeyspace = "test"
-    val CassandraNode = "localhost"
-    val CassandraTable = "words"
-    val CountColumn = "count"
-    val SearchString = "spark"
-    val SparkMaster = "local[*]"
-    val WordColumn = "word"
-    val WordsFile = "/usr/share/dict/words"
-  }
 }

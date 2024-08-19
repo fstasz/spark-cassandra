@@ -26,16 +26,16 @@ object SparkCassandra extends SparkCassandraConfig {
 
   def persistToCassandra() = {
     /** Define RDD from words file */
-    val wordList = sc.textFile(Configuration.WordsFile, 2).cache()
+    val wordList = sc.textFile(conf.getString("testConfig.wordsFile"), conf.getInt("sparkConfig.minPartitions")).cache()
     /** Return a new RDD of words containing SearchString */
-    val sparkWords = wordList.filter(line => line.contains(Configuration.SearchString))
+    val sparkWords = wordList.filter(line => line.contains(conf.getString("cassandraConfig.searchString")))
     /** Save to Cassandra */
     def persist(words: Array[String]) = {
       for (i <- 1 until words.length) {
         val collection = sc.parallelize(Seq(WordCount(words(i), i)))
         collection.saveToCassandra(
-          Configuration.CassandraKeyspace, Configuration.CassandraTable, SomeColumns(
-            Configuration.WordColumn, Configuration.CountColumn))
+          conf.getString("cassandraConfig.keyspace"), conf.getString("cassandraConfig.table"), SomeColumns(
+            conf.getString("cassandraConfig.wordColumn"), conf.getString("cassandraConfig.countColumn")))
       }
     }
     
