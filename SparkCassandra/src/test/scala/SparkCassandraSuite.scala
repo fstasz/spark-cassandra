@@ -31,14 +31,16 @@ class SparkCassandraSuite extends AnyFunSuite with TestUtil {
   test("Filtered words persisted to Cassandra should contain spark") {
 
     val expectedSparkiness =
-      sc.cassandraTable("test", "words").select("word").where("word = ?", "sparkiness")
+      sc.cassandraTable("test", "words").select("word").where(
+        conf.getString("testConfig.predicateParam"), conf.getString("testConfig.predicateArg"))
     val row = expectedSparkiness.first()
-    assert(row.getString(0) === "sparkiness")
+    assert(row.getString(0) === conf.getString("testConfig.predicateArg"))
   }
 
   test("Total number of persisted words should equal 30") {
 
-    val wordCount = SparkCassandra.sc.cassandraTable("test", "words").count()
-    assert(wordCount === 30)
+    val wordCount = SparkCassandra.sc.cassandraTable(
+      conf.getString("cassandraConfig.keyspace"), conf.getString("cassandraConfig.table")).count()
+    assert(wordCount === conf.getInt("testConfig.expectedWordCount"))
   }
 }
